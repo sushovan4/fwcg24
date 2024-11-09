@@ -21,38 +21,7 @@ editor:
   render-on-save: true
 ---
 
-# 
-![](joke.png){fig-align="center"}
-
-# Today's Agenda
-- Getting to know each other
-- Topological Data Analysis (<span class="green">TDA</span>)
-  - Why and How
-- The problem of shape reconstruction
-- Shape reconstruction techniques
-    - Vietoris--Rips complexes, Persistent Homology
-- Opportunities
-- Questions
-
-# About Me
-
-## Tulane University, New Orleans
-![PhD in Mathematics](gibson.jpg){fig-align="center"}
-
-## UC Berkeley, California
-![Data Science Postdoc Researcher](berkeley.jpg){fig-align="center"}
-
-## George Washington University, DC
-![Assistant Professor of Data Science](gwu.jpg){fig-align="center"}
-
-## Get in Touch
-  
-![](qr.png){fig-align="center" width="300"}
-
-- Website: <span class="green">smajhi.com</span>
-- Email: <span class="green">s.majhi@gwu.edu</span>
-
-# Topological Data Analysis
+# The Gromov--Hausdorff Distance
 ![](WordArt.png){fig-align="center"}
 
 ## What is Data Science?
