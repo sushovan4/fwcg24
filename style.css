@@ -16,7 +16,7 @@
 .title .pref {
     display: inline-block;
     position: absolute;
-    transform: translate(-50%, -55%);
+    transform: translate(-20%, -55%);
     font-style: italic;
     color: #3be57f;
     font-size: 0.6em;

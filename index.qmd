@@ -1,10 +1,10 @@
 ---
-title: "<span class='pref'>A Taste of</span>Topological Data Analysis (TDA)"
+title: "<span class='pref'>Lowering Bounding</span>The Gromov--Hausdorff Distance on Graphs"
 title-slide-attributes: 
   data-background-image: "drawing.png"
   data-background-opacity: "0.3"
 logo: logo.png
-subtitle: "Shape Reconstruction from Noisy Data"
+subtitle: "Henry Adams, Nicolò Zava, Žiga Virk, Fedor Manin"
 author: "<span class='green'><b>Sushovan Majhi</b></span><br><i>George Washington University, Washington D.C.</i>"
 fig-cap-location: bottom
 
