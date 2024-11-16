@@ -26,6 +26,7 @@ editor:
 - Hausdorff Distance
 - Gromov--Hausdorff Distance
 - Hasudorff vs Gromov--Hausdorff
+- The curious case of the circle
 - Lower bounds
   - Riemannian manifolds
   - metric graphs
@@ -241,7 +242,7 @@ $$
 
 - $d_{GH}(X,Z)\leq d^Z_H(X,Z)$
 
-## Comparison on the Circle
+## Comparison on the Circle {.smaller}
 
 ![](circle-1.png){fig-align="center"}
 
@@ -277,31 +278,11 @@ $$
 ![](circle-4.png){fig-align="center"}
 
 $$
-d_{GH}(X,S^1)<d_{H}(X,S^1)=\frac{\pi}{3}.
+\frac{\pi}{3}=d_{GH}(X,S^1)<d_{H}(X,S^1)=\frac{\pi}{3}+\varepsilon.
 $$
 
 
-## Goal
-
-- Our goal is to find lower bounds in terms of the Hausdorff distance.
-
-- The natural intuition is when a sample becomes dense enough, it starts to 
-capture the geometry of the space.
-
-Need pictures here.
-
-# Non-Trivial Lower Bounds
-
-
-- Bad News
-  
-For any $\varepsilon>0$, there exists a compact metric space $Z$ 
-and a subset $X\subseteq Z$ with $d_{GH}(X,Z) < \varepsilon \cdot d_{H}(X,Z).$
-
-## Closed Riemannian Manifolds
-
-
-# The Curious Case of the Circle
+## Optimal Density for the Circle 
 
 :::{#thm-}
 
@@ -312,6 +293,7 @@ $d_{GH}(X,S^1)=d_H(X,S^1)$.
 
 :::
 
+- Proof is topological
 - Is $\frac{\pi}{6}$ optimal?
 
 . . .
@@ -324,21 +306,38 @@ $d_{GH}(X,S^1)=d_H(X,S^1)$.
 
 :::
 
-- The constant $\frac{\pi}{3}$ is, indeed, optimal.
+- Proof is purely geometric
 
-- Picture here.
+
+# Non-Trivial Lower Bounds
+- Intuition: when a sample becomes dense enough, it starts to capture the geometry of the space.
+
+- Circle: $d_{GH}(X,S^1)\geq\min\big\{d_H(X, S^1),\frac{\pi}{3}\big\}$.
+
+- Generally: $d_{GH}(X,Z)\geq\min\big\{\color{red}{C}\cdot d_H(X, Z), \color{red}{D}\big\}$?
+    - Cirlce: $C=1$ and $D=\frac{\pi}{3}$.
   
-## 
+. . . 
 
-:::{#thm-}
-## Two Subsets of the Cirlce
+:::{#thm-no}
 
-For $X,Y\subset S^1$ with $d_H(X,S^1)<\frac{\pi}{3}$, then 
-$d_{GH}(X,S^1)\geq d_H(X,S^1)$.
+## Bad News
+
+For any $C>0$, there exists a compact metric space $Z$ 
+and a subset $X\subseteq Z$ with $d_{GH}(X,Z) < C \cdot d_{H}(X,Z).$
 
 :::
 
+## Good News
+:::{#thm-}
+## Closed Riemannian Manifolds
 
+For $X\subset M$, we have
+$$
+d_{GH}(X,M)\geq\min\bigg\{\color{green}{\frac{1}{2}}d_H(X, S^1),\color{green}{\frac{2\rho}{3}}\bigg\}.
+$$
+
+:::
 
 
 # Metric Graphs
