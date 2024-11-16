@@ -4,7 +4,7 @@
 }
 
 .green {
-    color: #3be57f;
+    color: #3be57f!important;
 }
 
 .red {
@@ -36,4 +36,8 @@ input {
 }
 .btn {
     background-color: black!important;
+}
+
+.theorem {
+    border: 1 px solid white!important;
 }

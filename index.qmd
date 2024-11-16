@@ -190,13 +190,9 @@ $$
 
 :::
 
-. . . 
+## The Circle
 
-> If $Y=Z$, then $d^Z_H(X,Z)=\vec{d}_H(Z,X)$.
-
-##
-
-![$S^1$ is the circle with circumference $2\pi$](circle.png){width="300"}
+![$Z=S^1$ is the circle with circumference $2\pi$](circle.png){width="300"}
 
 $$
 d_H(X,S^1)=\frac{\pi}{4}.
@@ -208,7 +204,7 @@ What if the subsets $X,Y$ have no common embeddding?
   
 . . .
 
-![Isometric embedding](gh.png){width="400"}
+![Isometric embedding](gh.png){width="350"}
 
 . . . 
 
@@ -218,7 +214,8 @@ $$
 
 ## Some Properties and Results {.smaller}
 
-- $d_{GH}(X,Y)=0$ if and only if $X$, $Y$ are isometric
+- $d_{GH}(X,Y)=0$ if and only if $X$, $Y$ are 
+<span style="green">isometric</span>
 
 - $$\tfrac{1}{2}|diam(X)-diam(Y)|\leq d_{GH}(X,Y)\leq \tfrac{1}{2}\max\big\{diam(X), diam(Y)\big\}$$
 
@@ -233,7 +230,7 @@ $$
 
 
 - Let $(Z,d)$ be a metric space and $X\subset Z$
-    - $d^Z_H(X,Z)$ is well-defined
+    - $d_H(X,Z)$ is well-defined
 - $(X,d)$ is also a metric space
     - $d_{GH}(X,Z)$ can be defined
 
@@ -241,8 +238,10 @@ $$
 
 > How the two distances $d_{GH}(X,Z)$ and $d^Z_H(X,Z)$ compare?
 
-- $d_{GH}(X,Z)\leq d^Z_H(X,Z)$
+- $d_{GH}(X,Z)\color{green}{\leq} d_H(X,Z)$
 
+- $d_{GH}(X,Z) \color{red}{=} d_H(X,Z)$?
+  
 ## Comparison on the Circle {.smaller}
 
 ![](circle-1.png){fig-align="center"}
@@ -309,11 +308,26 @@ $d_{GH}(X,S^1)=d_H(X,S^1)$.
 
 - Proof is purely geometric
 
+## Another Perspective
+
+- $d_{GH}(X,S^1)\geq\min\big\{d_H(X, S^1),\frac{\pi}{3}\big\}$.
+  
+. . .
+
+:::{#cor-}
+
+## Two Subsets 
+For $X,Y\subset S^1$ with $d_H(Y,S^1)\leq\varepsilon$, then
+$$d_{GH}(X,Y)\geq\min\big\{d_H(X, Y)-2\varepsilon,\tfrac{\pi}{3}-\varepsilon\big\}.$$
+
+:::
+
+- $O(n^2)$ lower-bound for $\max{|X|, |Y|}=n$.
 
 # Non-Trivial Lower Bounds
 - Intuition: when a sample becomes dense enough, it starts to capture the geometry of the space.
 
-- Circle: $d_{GH}(X,S^1)\geq\min\big\{d_H(X, S^1),\frac{\pi}{3}\big\}$.
+
 
 - Generally: $d_{GH}(X,Z)\geq\min\big\{\color{red}{C}\cdot d_H(X, Z), \color{red}{D}\big\}$?
     - Cirlce: $C=1$ and $D=\frac{\pi}{3}$.
@@ -335,14 +349,49 @@ and a subset $X\subseteq Z$ with $d_{GH}(X,Z) < C \cdot d_{H}(X,Z).$
 
 For $X\subset M$, we have
 $$
-d_{GH}(X,M)\geq\min\bigg\{\color{green}{\frac{1}{2}}d_H(X, S^1),\color{green}{\frac{2\rho}{3}}\bigg\}.
+d_{GH}(X,M)\geq\min\bigg\{\color{green}{\frac{1}{2}}d_H(X, S^1),\color{green}{\frac{\rho}{6}}\bigg\}.
 $$
 
 :::
 
+- $\rho$ is the convexity radius of $M$
+- $C=\frac{1}{2}$ can be improved using Jung's theorem
 
-# Metric Graphs
+# Metric Trees and Graphs
+
+:::{#thm-tree}
+## Trees
+Let $T$ be a compact tree with finite edges.
+For any $X\subset T$ so that $d_H(T,X)<\vec{d}_H(\delta T, X)$, we have
+$$
+d_{GH}(X,T)=d_H(X, T).
+$$
+
+:::
+
+. . . 
+
+:::{#thm-graph}
+## Graphs
+Let $G$ be a compact tree with finite edges.
+For any $X\subset G$ so that $d_H(G,X)<\vec{d}_H(\delta G, X)$, we have
+$$
+d_{GH}(X,G)=\min\bigg\{{d_H(X, S^1),\tfrac{e(G)}{12}}\bigg\}.
+$$
+
+:::
+
+- $e(G)$ denote the length of the shortest edge.
 
 # Questions
+
+- For metric graphs, is the density constant $\frac{e(G)}{12}$ optimal?
+    - We conjecture that $\frac{e(G)}{8}$ should suffice.
+
+- What about Riemannian manifolds with bounday?
+
+- Are there classes of metric spaces---like the circle, metric graphs---so that $C=1$?
+
+. . . 
 
 <span class="green">Thank you</span>
