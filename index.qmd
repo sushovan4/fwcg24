@@ -223,7 +223,7 @@ $$
     - Computationally feasible (distortion definition)
     - Minimization problem with *exponential* search space
 
-- If $X,Y$ metric graphs, then $NP$-hard (A. Aggarawal et al.)
+- If $X,Y$ metric trees, then $NP$-hard (A. Aggarawal et al.)
 - If $X,Y\subset\mathbb{R}^1$, then $\frac{5}{4}$-approximable (Majhi et al.)
 
 # Hausdorff vs Gromov--Hausdorff
