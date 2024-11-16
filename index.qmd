@@ -376,12 +376,12 @@ $$
 Let $G$ be a compact tree with finite edges.
 For any $X\subset G$ so that $d_H(G,X)<\vec{d}_H(\delta G, X)$, we have
 $$
-d_{GH}(X,G)=\min\bigg\{{d_H(X, S^1),\tfrac{e(G)}{12}}\bigg\}.
+d_{GH}(X,G)\geq\min\bigg\{{d_H(X, S^1),\tfrac{e(G)}{12}}\bigg\}.
 $$
 
 :::
 
-- $e(G)$ denote the length of the shortest edge.
+- $e(G)$ denotes the length of the shortest edge.
 
 # Questions
 
