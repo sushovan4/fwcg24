@@ -25,6 +25,11 @@ editor:
 
 - Hausdorff Distance
 - Gromov--Hausdorff Distance
+- Hasudorff vs Gromov--Hausdorff
+- Lower bounds
+  - Riemannian manifolds
+  - metric graphs
+- Future work
 
 # The Hausdorff Distance
 
@@ -34,7 +39,7 @@ editor:
 For two subsets compact $X,Y\subset\mathbb R^n$, their Hausdorff distance
 is
 $$
-\vec{d}_H(X,Y)=\max_{x\in X}\min_{y\in Y}\|x-y\|.
+\vec{d}_H(X,Y)=\min\bigg\{r\geq0\mid X\subset \bigcup_{y\in Y} B(y,r)\bigg\}.
 $$
 
 :::
@@ -79,12 +84,12 @@ $$
 viewof scaleA = Inputs.range([0, 300], {
   step: 1,
   value: 0,
-  label: tex`\vec{d}_H(X,Y)`
+  label: tex`r`
 });
 viewof scaleB = Inputs.range([0, 300], {
   step: 1,
   value: 0,
-  label: tex`\vec{d}_H(Y,X)`
+  label: tex`r`
 });
 viewof isA = Inputs.toggle({ label: tex`X\text{ or }Y`, value: true });
 viewof btn = Inputs.button("clear", {
@@ -163,63 +168,130 @@ import { slider } from "@jashkenas/inputs"
 ```
 
 ```{ojs}
-tex`d_H(X,Y)=${Math.max(scaleA, scaleB)}`;
+tex`\vec{d}_H(X,Y)=${scaleB}`;
+tex`d_H(X,Y)=${scaleA}`;
+tex`d_H(X,Y)=\text{max\{ }${scaleA}, ${scaleB}\text{ \}}=${Math.max(scaleA, scaleB)}`;
 ```
 
 ## Why Only Euclidean Subsets?
 
 :::{#def-h1}
 ## Hausdorff Distance 
-Let $(Z,d)$ be a metric space and $A, B\subset$ compact subsets.
+Let $(Z,d)$ be a metric space and $X, Y\subset$ compact subsets.
 $$
-\vec{d}^Z_H(A,B)=\max_{a\in A}\min_{b\in B}d(a, b).
+\vec{d}^Z_H(X,Y)=\min\{r\geq0\mid X\subset \cup_{y\in Y} B(y,r)\}.
 $$
 
 $$
-d^Z_H(A,B)=\max\bigg\{\vec{d}^Z_H(A,B),\vec{d}^Z_H(B,A)\bigg\}.
+d^Z_H(X,Y)=\max\bigg\{\vec{d}^Z_H(X,Y),\vec{d}^Z_H(Y,X)\bigg\}.
 $$
 
 :::
 
 . . . 
 
-![Image of a circle with sample]()
+> If $Y=Z$, then $d^Z_H(X,Z)=\vec{d}_H(Z,X)$.
+
+##
+
+![$S^1$ is the circle with circumference $2\pi$](circle.png){width="300"}
+
+$$
+d_H(X,S^1)=\frac{\pi}{4}.
+$$
 
 # The Gromov--Hausdorff Distance
 
-- What if the subsets $X,Y$ have no common embeddding?
+What if the subsets $X,Y$ have no common embeddding?
   
 . . .
 
-![Isometric Embedding](gh.png){width="400"}
+![Isometric embedding](gh.png){width="400"}
 
-## 
+. . . 
 
-:::{#def-gh}
-## The Gromov--Hausdorff Distance
-The Gromov--Hausdorff distance is defined by
 $$
-d_{GH}(X,Y)=\inf d^Z(f(X),g(Y)),
+d_{GH}(X,Y)=\inf d^Z_H(f(X),g(Y))
 $$
-over all isometries $f,g$ and common embeddeding space $(Z,d)$.
 
-:::
+## Some Properties and Results {.smaller}
 
-- $d_{GH}(A,B)=$ if and only if $A$, $B$ are isometric.
-- If finite $|X|=|Y|=n$ 
+- $d_{GH}(X,Y)=0$ if and only if $X$, $Y$ are isometric
+
+- $$\tfrac{1}{2}|diam(X)-diam(Y)|\leq d_{GH}(X,Y)\leq \tfrac{1}{2}\max\big\{diam(X), diam(Y)\big\}$$
+
+- When $X, Y$ are finite metric spaces
     - Computationally feasible (distortion definition)
-    - Exponential
+    - Minimization problem with *exponential* search space
 
+- If $X,Y$ metric graphs, then $NP$-hard (A. Aggarawal et al.)
+- If $X,Y\subset\mathbb{R}^1$, then $\frac{5}{4}$-approximable (Majhi et al.)
 
 # Hausdorff vs Gromov--Hausdorff
 
-- $(Z,d)$ is a metric space
-- $X$ is a subset
+
+- Let $(Z,d)$ be a metric space and $X\subset Z$
+    - $d^Z_H(X,Z)$ is well-defined
 - $(X,d)$ is also a metric space
+    - $d_{GH}(X,Z)$ can be defined
+
+. . . 
+
+> How the two distances $d_{GH}(X,Z)$ and $d^Z_H(X,Z)$ compare?
+
+- $d_{GH}(X,Z)\leq d^Z_H(X,Z)$
+
+## Comparison on the Circle
+
+![](circle-1.png){fig-align="center"}
+
+$$
+d_H(X,S^1)=\frac{\pi}{2}
+$$
+
+$$
+\frac{1}{2}\pi\leq d_{GH}(X,S^1)\leq \frac{1}{2}\pi
+\implies d_{GH}(X,S^1)=\frac{\pi}{2}
+$$
+
+
+## Comparison on the Circle {.smaller}
+
+![](circle-2.png){fig-align="center"}
+
+$$
+d_H(X,S^1)=\frac{\pi}{4}
+$$
+
+$$
+\frac{1}{2}0\leq d_{GH}(X,S^1)\leq \frac{1}{2}\pi
+\implies ?
+$$
+
+. . . 
+
+> $d_{GH}(X,S^1)=d_H(X,S^1)$
+
+## Comparison on the Circle
+
+![](circle-4.png){fig-align="center"}
+
+$$
+d_{GH}(X,S^1)<d_{H}(X,S^1)=\frac{\pi}{3}.
+$$
+
+
+## Goal
+
+- Our goal is to find lower bounds in terms of the Hausdorff distance.
+
+- The natural intuition is when a sample becomes dense enough, it starts to 
+capture the geometry of the space.
+
+Need pictures here.
 
 # Non-Trivial Lower Bounds
 
-- $\frac{1}{2}|diam(X)-diam(Y)|\leq d_{GH}(X,Y)\leq \frac{1}{2}\max\{diam(X), diam(Y)\}$.
 
 - Bad News
   
@@ -228,14 +300,6 @@ and a subset $X\subseteq Z$ with $d_{GH}(X,Z) < \varepsilon \cdot d_{H}(X,Z).$
 
 ## Closed Riemannian Manifolds
 
-
-## Example using Non-Dense subsets of Circle
-- Our goal is to find lower bounds in terms of the Hausdorff distance.
-
-- The natural intuition is when a sample becomes dense enough, it starts to 
-capture the geometry of the space.
-
-Need pictures here.
 
 # The Curious Case of the Circle
 
